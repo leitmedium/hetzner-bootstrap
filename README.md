@@ -28,5 +28,5 @@ on the server you want to install:
 1. boot into rescue mode
 2. run the command provided by your setup.sh
 
-if you are unsere what your current install command is, see
+If you are unsure what your current install command is, see
  install-command.txt, that is writte, every time you run setup.sh
