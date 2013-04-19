@@ -1,0 +1,4 @@
+#!/bin/bash
+wget %%BASE_URL%%/hetzner-postinstall.sh
+chmod 755 hetzner-postinstall.sh
+/root/.oldroot/nfs/install/installimage -a -p /boot:ext3:1G,/:ext4:all -r yes -l 1 -b grub -d sda,sdb -i /root/.oldroot/nfs/install/../images/Ubuntu-1204-precise-64-minimal.tar.gz -x hetzner-postinstall.sh -n ${SERVERNAME}

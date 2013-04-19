@@ -1,0 +1,4 @@
+# the content of this file will be copied 1:1 to /root/.ssh/authorized_keys
+# if you want to login with password, leave this file as it is, otherwise copy 
+# one or multiple openssh public keys into this file as you wout into 
+# the standard /root/.ssh/authorized_keys
