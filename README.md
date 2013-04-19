@@ -29,3 +29,9 @@ on the server you want to install:
 2. run the command provided by your setup.sh
 
 If you are unsure what your current install command is, see install-command.txt
+
+License
+
+This software is published under the MIT License. See LICENSE for
+details.
+
