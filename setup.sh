@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# base url
-echo " please give the base url, where wget can access your hetzner-install.sh script"
-echo " e.g.: https://www.example.com/scripts/"
-read BASE_URL
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+REMOTE=$(git ls-remote --get-url origin | sed 's,github\.com[:/],raw.github.com/,;s,^git@,https://,;s,\.git$,,')
+BASE_URL=$REMOTE/$BRANCH
 
-sed "s/%%BASE_URL%%/${BASE_URL}/g" hetzner-installimage.sh.template > hetzner-installimage.sh
-sed "s/%%BASE_URL%%/${BASE_URL}/g" hetzner-postinstall.sh.template > hetzner-postinstall.sh
+sed "s,%%BASE_URL%%,${BASE_URL},g" hetzner-installimage.sh.template > hetzner-installimage.sh
+sed "s,%%BASE_URL%%,${BASE_URL},g" hetzner-postinstall.sh.template > hetzner-postinstall.sh
 cat custom-postinstall.sh >> hetzner-postinstall.sh
 
 
