@@ -13,12 +13,19 @@ sed "s,%%BASE_URL%%,${BASE_URL},g" hetzner-installimage.sh.template > hetzner-in
 sed "s,%%BASE_URL%%,${BASE_URL},g" hetzner-postinstall.sh.template > hetzner-postinstall.sh
 cat custom-postinstall.sh >> hetzner-postinstall.sh
 
-echo
-echo "Please provide a space-separated list of github users whose"
-echo "ssh public keys you want to add to /root/ssh/.authorized_keys"
-echo "Leave blank if you don't want to grab keys from github."
-echo "Example: leitmedium ctavan"
-read ROOT_USERS
+ROOT_USERS="$@"
+if [[ -z $ROOT_USERS ]]
+then
+    echo
+    echo "Please provide a space-separated list of github users whose"
+    echo "ssh public keys you want to add to /root/ssh/.authorized_keys"
+    echo "Leave blank if you don't want to grab keys from github."
+    echo "Example: leitmedium ctavan"
+    read ROOT_USERS
+else
+    echo
+    echo "Fetching ssh keys for: $ROOT_USERS"
+fi
 
 for USER in $ROOT_USERS
 do
