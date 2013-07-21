@@ -1,0 +1,1 @@
+SERVERNAME=your.fully.qualified.server.name bash < <(wget -qO - https://raw.github.com/leitmedium/hetzner-bootstrap/raid1-fulldisk-puppet/hetzner-installimage.sh)
