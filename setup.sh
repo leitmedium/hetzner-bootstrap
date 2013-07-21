@@ -29,9 +29,9 @@ fi
 
 for USER in $ROOT_USERS
 do
+    MAIL_ADDRESS=$(wget -qO - https://api.github.com/users/$USER | awk -F'"' '/"email": /{print $4}')
     wget -qO - https://api.github.com/users/$USER/keys |
-        grep -Po '"key": "\K[^"]+' |
-        awk -v user=$USER '{print $0, user}' >> root-ssh-authorizedkeys.pub
+        awk -v user="$MAIL_ADDRESS - github user $USER" -F'"' '/"key": /{print $4, user}' >> root-ssh-authorizedkeys.pub
 done
 
 echo
