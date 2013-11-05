@@ -1,5 +1,5 @@
 #!/bin/bash
-apt-get -y install byobu wget
+apt-get -y install byobu wget ruby1.8
 wget http://apt.puppetlabs.com/pool/precise/main/p/puppet/puppet-common_2.7.23-1puppetlabs1_all.deb
 wget http://apt.puppetlabs.com/pool/precise/main/p/puppet/puppet_2.7.23-1puppetlabs1_all.deb
 dpkg -i puppet-common_2.7.23-1puppetlabs1_all.deb
