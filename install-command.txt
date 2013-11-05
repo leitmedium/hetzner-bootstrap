@@ -1,0 +1,1 @@
+SERVERNAME=your.fully.qualified.server.name bash < <(wget -qO - https://raw.github.com/leitmedium/hetzner-bootstrap/mbr-basenode/hetzner-installimage.sh)
